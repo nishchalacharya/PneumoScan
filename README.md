@@ -40,6 +40,9 @@ The system is integrated with a Django backend and features a responsive fronten
 > > Models are stored **locally** in `ai_models/` folder .
 
 ---
+## 📦 Project Structure
+
+```
 
 PneumoScan/                            # 🔹 Main project folder
 │
@@ -84,7 +87,7 @@ PneumoScan/                            # 🔹 Main project folder
 ├── manage.py
 └── requirements.txt
 
-
+```
 
 
 
