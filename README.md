@@ -90,8 +90,35 @@ PneumoScan/                            # 🔹 Main project folder
 ```
 ## 📱 Screenshots
 
-![Pneumonia Prediction](Screenshots/1.png)
+![Regsiter](Screenshots/1.png)
+  **Signup Screen:** New users can register to access the app features.
 
+![Login](Screenshots/2.png)
+ **Login Screen:** Users can securely log into the PneumoScan .
+
+![Dashboard](Screenshots/dashboard.png)
+**Dashboard:** Overview of user activities and quick access to main features.
+
+![Upload](Screenshots/upload.png)
+**Upload** upload to check.
+
+![Detectedfile](Screenshots/pneumoniadetected.png)
+**Result Displaying** user can click on check gradcam result to see their infected parts
+
+![GradcamResult](Screenshots/gradcam.png)
+**Displaying Effected parts** users can see their probable infected parts .
+
+![Services](Screenshots/services.png)
+**Available Services** users can see their services .
+
+![Graph](Screenshots/3.png)
+**Graph** to see performance of model
+
+![Blogs](Screenshots/4.png)
+**Blogs** to see create,see,like and comment blogs related to health sectors
+
+
+For more detailed views and additional screenshots, please refer to the `screenshots` folder in the repository.
 
 
 
