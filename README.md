@@ -89,7 +89,7 @@ PneumoScan/                            # 🔹 Main project folder
 
 ```
 ## 📱 Screenshots
-
+---
 ![Regsiter](Screenshots/1.png)
   **Signup Screen:** New users can register to access the app features.
 
@@ -116,15 +116,18 @@ PneumoScan/                            # 🔹 Main project folder
 
 ![Blogs](Screenshots/4.png)
 **Blogs** to see create,see,like and comment blogs related to health sectors
+---
 
+---
 
 For more detailed views and additional screenshots, please refer to the `screenshots` folder in the repository.
 
-
-
+---
 
 
 ```
+
+## ⚙️ Getting Started
 ## 🔧 Setup Instructions
 
 1. **Clone the repository**
@@ -132,3 +135,19 @@ For more detailed views and additional screenshots, please refer to the `screens
 ```bash
 git clone https://github.com/nishchalacharya/Pneumo-Scan-major_Project-.git
 cd Pneumo-Scan-major_Project-
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate    # Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+
+# Run migrations
+python manage.py makemigrations
+python manage.py migrate
+
+
+# Start development server
+python manage.py runserver
