@@ -102,7 +102,7 @@ PneumoScan/                            # 🔹 Main project folder
 ![Upload](Screenshots/upload.png)
 **Upload** upload to check.
 
-![Detectedfile](Screenshots/pneumoniadetected.png)
+![Detectedfile](Screenshots/penuumoniadetected.png)
 **Result Displaying** user can click on check gradcam result to see their infected parts
 
 ![GradcamResult](Screenshots/gradcam.png)
