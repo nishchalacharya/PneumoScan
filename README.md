@@ -120,7 +120,7 @@ PneumoScan/                            # 🔹 Main project folder
 
 ---
 
-For more detailed views and additional screenshots, please refer to the `screenshots` folder in the repository.
+***For more detailed views and additional screenshots, please refer to the `screenshots` folder in the repository.***
 
 ---
 
