@@ -41,32 +41,31 @@ The system is integrated with a Django backend and features a responsive fronten
 
 ---
 
-PneumoScan/                            # 🔹 Main project folder (contains settings.py, wsgi.py, etc.)
+PneumoScan/                            # 🔹 Main project folder
 │
-├── loginSignUp/                       # 🔹 Main Django project directory (with settings.py)
+├── loginSignUp/                       # 🔹 Django project directory (contains settings.py)
 │   ├── __init__.py
 │   ├── settings.py
 │   ├── urls.py
 │   └── wsgi.py
 │
-├── login/                             # 🔐 Handles registration, login, about us, profile
+├── login/                             # 🔐 Handles user registration, login, about us, profile
 │   ├── views.py
 │   ├── models.py
 │   ├── forms.py
 │   └── urls.py
 │
-├── blogapp/                           # 📝 Blog system app (post creation, view, detail)
+├── blogapp/                           # 📝 Blog system (create/view blog posts)
 │   ├── views.py
 │   ├── models.py
 │   └── urls.py
 │
-├── gradcam/                           # 🔍 Pneumonia & TB prediction app using CNN + Grad-CAM
+├── gradcam/                           # 🔍 Pneumonia & TB prediction via Grad-CAM
 │   ├── views.py
-│   ├── ai_models/                     # 🔬 Trained model files (.h5) — not uploaded due to size
-│   └── utils/                         # Grad-CAM utility functions
-│                  
+│   ├── ai_models/                     # 🔬 Pretrained .h5 model files (excluded from GitHub)
+│   └── utils/                         # Grad-CAM utilities
 │
-├── media/                             # 🖼 For uploaded images (X-rays, profile pics, etc.)
+├── media/                             # 🖼 Stores uploaded images (X-rays, profile photos, etc.)
 │
 ├── static/                            # 🎨 Static files (CSS, JS, images)
 │   ├── css/
@@ -76,11 +75,11 @@ PneumoScan/                            # 🔹 Main project folder (contains sett
 ├── templates/                         # 🌐 HTML templates
 │   ├── base.html
 │   ├── login.html
-│   ├── blogapp html files
-│   ├── and many other html files for various pages
-│   └── ...
+│   ├── blogapp/                       # Blog-related HTMLs
+│   ├── gradcam/                       # Model interface pages
+│   └── ...                            # Other HTML files (about, contact, etc.)
 │
-├── screenshots/                       # 📸 Screenshots folder to show UI and features
+├── screenshots/                       # 📸 Project UI screenshots
 │
 ├── manage.py
 └── requirements.txt
