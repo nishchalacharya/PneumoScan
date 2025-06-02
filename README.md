@@ -88,10 +88,16 @@ PneumoScan/                            # 🔹 Main project folder
 └── requirements.txt
 
 ```
+## 📱 Screenshots
+
+![Pneumonia Prediction](Screenshots/1.png)
 
 
 
 
+
+
+```
 ## 🔧 Setup Instructions
 
 1. **Clone the repository**
