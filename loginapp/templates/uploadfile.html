@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PneumoScan</title>
+    <link rel="stylesheet" href="{% static 'css/uploadfile.css'%}">
+    <link rel="shortcut icon" href="{% static 'images/abc.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+    <section id="hero">
+        <nav class="navigation">
+            <input type="checkbox" class="menu-btn" id="menu-btn">
+            <label for="menu-btn" class="menu-icon">
+                <span class="nav-icon"></span>
+            </label>
+            <div class="logoo">
+                <a href="{% url 'dashboard'%}#hero" class="logo">Pneumo<span>Scan</span></a>
+                <p>AI For Pneumonia Detection</p>
+            </div>
+            <ul class="menu">
+                <li><a href="{% url 'dashboard'%}#hero">Home</a></li>
+                <li><a href="{% url 'dashboard'%}#our-services">Our Services</a></li>
+                <li><a href="{% url 'dashboard' %}#contact-us">Contact us</a></li>
+                <li><a href="{% url 'blog'%}">Blogs</a></li>
+            </ul>
+            <a href="{% url 'logout'%}" class="chatbot-button">Log Out</a>
+        </nav>
+        <form method="post" enctype="multipart/form-data" action="{% url 'pneumonia_div' %}">
+
+            {% csrf_token %}
+        <div class="hero-content">
+            <h1>Pneumonia Detection</h1>
+            <p>AI-powered analysis of chest X-rays for rapid and accurate pneumonia detection.</p>
+                <label for="input-file" id="drop-area">
+                <input type="file" name = 'xray_image' accept="image/*" id="input-file" hidden>
+                <div id="img-view">
+                      <img src="{%static 'images/508-icon.png'%}">
+                      <p>Drag and drop or click here<br>to upload image</p>
+                      <span>Upload the X-ray image from your device</span>
+                </div>
+            </label>  
+            <button id="check-btn"type="submit">Check</button> 
+            <div id="result">
+                
+
+                 {% if result  %} 
+                <h2>Prediction:{{result}}</h2>
+                <img src="{{image_url}}" alt="image"class='image_result'>
+                <a href="{% url 'show_gradcam'%}" id="gradcam-btn" class="gradcam-button">Check GradCam Result</a>
+                
+                {% comment %} <img src="{% url 'gradcam_image' %}" alt="Grad-CAM Analysis"> {% endcomment %}
+                {% comment %} <img src="{{gradcam_result}}" alt="gradcam_result"class="gradcam_result"> {% endcomment %}
+                {% else %}
+                {% comment %} <h2>No result available:</h2> {% endcomment %}
+                 {% endif %} 
+
+
+
+
+            </div>      
+        </div>
+    </form>
+    </section>
+    <script src="{% static 'js/upload.js' %}">
+    </script>
+
+
+
+<!-- Chatbot Start  -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'js/script.js'%}"></script>
+
+<!-- Dialogflow chatbot script -->
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+
+<!-- Dialogflow chatbot -->
+<df-messenger
+  chat-icon="https://png.pngtree.com/png-clipart/20230401/original/pngtree-smart-chatbot-cartoon-clipart-png-image_9015126.png"
+  intent="WELCOME"
+  chat-title="Pneumoscan"
+  agent-id="e9095162-4613-4375-b2d0-b0fb915de03d"
+  language-code="en"
+></df-messenger>
+
+<!-- Chatbot end -->
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

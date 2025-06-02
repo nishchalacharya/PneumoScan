@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PneumoScan</title>   
+    <link rel="stylesheet" href="{% static 'css/myprofile.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/abc.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<body>
+    <section id="hero">
+        <nav class="navigation">
+            <input type="checkbox" class="menu-btn" id="menu-btn">
+            <label for="menu-btn" class="menu-icon">
+                <span class="nav-icon"></span>
+            </label>
+            <div class="logoo">
+                <a href="{% url 'dashboard' %}#hero" class="logo">Pneumo<span>Scan</span></a>
+                <p>AI For Pneumonia Detection</p>
+            </div>
+            <ul class="menu">
+                <li><a href="{% url 'dashboard'%}#hero">Home</a></li>
+                <li><a href="{% url 'dashboard'%}#our-services">Our Services</a></li>
+                <li><a href="{% url 'dashboard' %}#contact-us">Contact us</a></li>
+                <li><a href="#">Blogs</a></li>
+            </ul>
+            <a href="#" class="chatbot-button">ChatBot</a>
+        </nav>
+
+        <div class="hero-content">
+            <div class="profile-card">
+                
+                <button class="edit-btn" onclick="window.location.href='{% url 'profile_edit'  %}'">Edit</button>
+               <div class="borderkolagi">
+                 <div class="profile-section">
+                    <div class="profile-picture-container">
+                        <img src="{{ profile.profile_pic.url|default:'/media/profile_pictures/default.png' }}" alt="Profile Picture" class="profile-picture">
+
+                    </div>
+                </div>
+            </div>
+                 <div class="field-group">
+                  <label class="field-label">Name</label>
+                  <p>{{profile.user.username}}</p>
+                 </div>
+                 <div class="field-group">
+                   <label class="field-label">Email</label>
+                   <p>{{profile.user.email}}</p>
+                 </div>
+                 <div class="field-group">
+                   <label class="field-label">Phone Number</label>
+                   <p>{{profile.phoneno}}</p>
+                 </div>
+                 <div class="field-group">
+                   <label class="field-label">Role</label>
+                   <p>{% if profile.is_doctor %}Yes {% else %}No  {% endif %}</p>
+                 </div>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'js/myprofile.js'%}">
+    </script>
+</body>
+</html>
+    

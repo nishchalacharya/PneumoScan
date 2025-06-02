@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grad-CAM Visualization</title>
+    <link rel="stylesheet" href="{% static 'css/uploadfile.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        /* Centering content */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* GradCAM Image Styling */
+        .gradcam-container {
+            margin: 30px auto;
+            padding: 20px;
+            width: 80%;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .gradcam-container img {
+            max-width: 90%;
+            height: auto;
+            border-radius: 10px;
+            border: 4px solid #007bff;
+            box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.3);
+        }
+
+        /* About GradCAM Section */
+        .gradcam-info {
+            background: linear-gradient(45deg, #007bff, #00c6ff);
+            color: white;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.3);
+        }
+
+        .gradcam-info mark {
+            background: none;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .gradcam-info h3 {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        /* Back to Home Button */
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(255, 65, 108, 0.3);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .back-button:hover {
+            background: linear-gradient(45deg, #ff4b2b, #ff416c);
+            box-shadow: 0px 6px 15px rgba(255, 75, 43, 0.4);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <section id="hero">
+        <nav class="navigation">
+            <input type="checkbox" class="menu-btn" id="menu-btn">
+            <label for="menu-btn" class="menu-icon">
+                <span class="nav-icon"></span>
+            </label>
+            <div class="logoo">
+                <a href="{% url 'dashboard' %}#hero" class="logo">Pneumo<span>Scan</span></a>
+                <p>AI For Pneumonia Detection</p>
+            </div>
+            <ul class="menu">
+                <li><a href="{% url 'dashboard' %}#hero">Home</a></li>
+                <li><a href="{% url 'dashboard' %}#our-services">Our Services</a></li>
+                <li><a href="{% url 'dashboard' %}#contact-us">Contact us</a></li>
+                <li><a href="{% url 'blog' %}">Blogs</a></li>
+            </ul>
+            <a href="{% url 'logout' %}" class="chatbot-button">Log Out</a>
+        </nav>
+    
+        <h1 style="color: #007bff; margin-top: 30px;">Grad-CAM Visualization</h1>
+
+        <!-- GradCAM Image Container -->
+        <div class="gradcam-container">
+            <img src="{% url 'gradcam_image' %}" alt="Grad-CAM Analysis">
+        </div>
+
+        <!-- About GradCAM Section -->
+        <div class="gradcam-info">
+            <mark>About Grad-CAM</mark>
+            <h3>→ Grad-CAM (Gradient-weighted Class Activation Mapping) is a deep learning visualization technique that helps understand CNNs by highlighting the regions of an input image that are most important for a specific prediction, effectively creating a "heat map" of the model's focus.</h3>
+            <h3>→ A heatmap is a visual representation that highlights the regions of an input image that are most influential in a Convolutional Neural Network (CNN)'s prediction for a specific class.The different colors in it explains the main core part for pneumonia detection.</h3>
+            "-     🔵 Blue: Least activated (low importance) "
+                "- 🟢 Green: Moderately activated "
+                 "- 🟡 Yellow: Highly activated "
+                 "- 🟠 Orange: Very highly activated "
+                 "- 🔴 Red: Most activated (highest importance)",
+        </div>
+
+        <!-- Back Button -->
+        <a href="{% url 'dashboard' %}" class="back-button">Back to Home</a>
+    </section>
+</body>
+</html>
