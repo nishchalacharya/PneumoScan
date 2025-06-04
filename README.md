@@ -111,7 +111,7 @@ PneumoScan/                            # 🔹 Main project folder
 ![Services](Screenshots/services.png)
 **Available Services** users can see their services .
 
-![Graph](Screenshots/3.png)
+![Graph](Screenshots/graph.png)
 **Graph** to see performance of model
 
 ![Blogs](Screenshots/4.png)
